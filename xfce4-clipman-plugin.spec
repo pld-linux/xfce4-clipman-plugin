@@ -1,19 +1,20 @@
 Summary:	A simple clipboard history for Xfce panel
 Summary(pl):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
-Version:	0.4.1
-Release:	3
+Version:	0.8.0
+Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
-Source0:	http://download.berlios.de/xfce-goodies/%{name}-%{version}.tar.gz
-# Source0-md5:	664f6ca8500d8f240289c27d7bf4f419
-URL:		http://xfce-goodies.berlios.de/
+Source0:	http://goodies.xfce.org/releases/xfce4-clipman-plugin/%{name}-%{version}.tar.bz2
+# Source0-md5:	808d4e8bc6e9a9d4ed30124fb2236c1d
+URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
+BuildRequires:	autoconf >= 2.50
 BuildRequires:	automake
-BuildRequires:	libxfce4util-devel >= 3.99
-BuildRequires:	libxfcegui4-devel >= 3.99
+BuildRequires:	intltool
 BuildRequires:	pkgconfig
-BuildRequires:	xfce4-panel-devel >= 3.99
-Requires:	xfce4-panel >= 3.99
+BuildRequires:	xfce4-dev-tools >= 4.4.0
+BuildRequires:	xfce4-panel-devel >= 4.4.0
+Requires:	xfce4-panel >= 4.4.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -26,7 +27,11 @@ Wtyczka ta jest histori± schowka panelu.
 %setup -q
 
 %build
-cp -f /usr/share/automake/config.sub .
+%{__intltoolize}
+%{__aclocal}
+%{__autoconf}
+%{__autoheader}
+%{__automake}
 %configure \
 	--disable-static
 
@@ -38,12 +43,13 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
-rm -f $RPM_BUILD_ROOT%{_libdir}/xfce4/panel-plugins/*.la
+%find_lang %{name}
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%files
+%files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog COPYING
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/*.so
+%doc AUTHORS ChangeLog COPYING README THANKS
+%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/xfce4-clipman-plugin
+%{_datadir}/xfce4/panel-plugins/clipman.desktop

@@ -1,5 +1,5 @@
 Summary:	A simple clipboard history for Xfce panel
-Summary(pl.UTF-8):   Prosta historia schowka panelu Xfce
+Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
 Version:	0.8.0
 Release:	1

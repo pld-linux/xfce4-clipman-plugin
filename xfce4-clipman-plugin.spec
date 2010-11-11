@@ -13,6 +13,7 @@ BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	pkgconfig
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRequires:	xfce4-panel-devel >= 4.6.0
+Requires:	xfce4-dirs >= 4.6
 Requires:	xfce4-panel >= 4.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -63,12 +64,17 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce4-clipman-plugin.desktop
 %{_datadir}/xfce4/panel-plugins/xfce4-clipman-plugin.desktop
 
-%{_datadir}/xfce4/doc/C/*
-%lang(da) %{_datadir}/xfce4/doc/da/*
-%lang(fr) %{_datadir}/xfce4/doc/fr/*
-%lang(gl) %{_datadir}/xfce4/doc/gl/*
-%lang(it) %{_datadir}/xfce4/doc/it/*
-%lang(ja) %{_datadir}/xfce4/doc/ja/*
-# this needs proper fix
-%lang(zh_CN) %dir %{_datadir}/xfce4/doc/zh_CN
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*
+%{_datadir}/xfce4/doc/C/*.html
+%{_datadir}/xfce4/doc/C/images/*.png
+%lang(da) %{_datadir}/xfce4/doc/da/*.html
+%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
+%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
+%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
+%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
+%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
+%lang(it) %{_datadir}/xfce4/doc/it/*.html
+%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
+%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
+%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
+%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
+%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png

@@ -2,19 +2,24 @@ Summary:	A simple clipboard history for Xfce panel
 Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
 Version:	1.1.3
-Release:	6
+Release:	7
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.1/%{name}-%{version}.tar.bz2
 # Source0-md5:	2ba70c6bd710e2a18cba5add66d297dc
+Patch0:		exo.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
-BuildRequires:	exo-devel >= 0.3.0
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	exo-devel >= 0.5.0
+BuildRequires:	libtool
 BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	pkgconfig
+BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	xfce4-dev-tools >= 4.6.0
 BuildRequires:	xfce4-panel-devel >= 4.6.0
-Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	hicolor-icon-theme
+Requires:	gtk-update-icon-cache
+Requires:	hicolor-icon-theme
 Requires:	xfce4-dirs >= 4.6
 Requires:	xfce4-panel >= 4.6.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -27,8 +32,13 @@ Wtyczka ta jest historią schowka panelu.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
+%{__libtoolize}
+%{__aclocal}
+%{__autoconf}
+%{__automake}
 %configure \
 	--disable-static
 

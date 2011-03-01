@@ -1,0 +1,186 @@
+diff -ur xfce4-clipman-plugin-1.1.3-orig/configure.ac xfce4-clipman-plugin-1.1.3/configure.ac
+--- xfce4-clipman-plugin-1.1.3-orig/configure.ac	2011-03-01 11:20:19.679067639 +0100
++++ xfce4-clipman-plugin-1.1.3/configure.ac	2011-03-01 12:23:38.597889237 +0100
+@@ -68,7 +68,7 @@
+ XDT_CHECK_PACKAGE([GDKX], [gdk-x11-2.0], [2.10.0])
+ XDT_CHECK_PACKAGE([GTK], [gtk+-2.0], [2.10.0])
+ XDT_CHECK_PACKAGE([LIBXFCE4UTIL], [libxfce4util-1.0], [4.4.0])
+-XDT_CHECK_PACKAGE([LIBXFCEGUI4], [libxfcegui4-1.0], [4.4.0])
++XDT_CHECK_PACKAGE([LIBXFCE4UI], [libxfce4ui-1], [4.8.0])
+ XDT_CHECK_PACKAGE([LIBXFCE4PANEL], [libxfce4panel-1.0], [4.4.0])
+ XDT_CHECK_PACKAGE([XFCONF], [libxfconf-0], [4.6.0])
+ XDT_CHECK_PACKAGE([GLADE], [libglade-2.0], [2.6.0])
+diff -ur xfce4-clipman-plugin-1.1.3-orig/panel-plugin/actions.c xfce4-clipman-plugin-1.1.3/panel-plugin/actions.c
+--- xfce4-clipman-plugin-1.1.3-orig/panel-plugin/actions.c	2009-08-13 10:33:31.000000000 +0200
++++ xfce4-clipman-plugin-1.1.3/panel-plugin/actions.c	2011-03-01 12:25:06.323889237 +0100
+@@ -38,7 +38,7 @@
+ #include <exo/exo.h>
+ #include <gtk/gtk.h>
+ #include <libxfce4util/libxfce4util.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ 
+ #include "common.h"
+ 
+@@ -361,10 +361,10 @@
+ 
+   DBG ("Execute command `%s'", real_command);
+ 
+-  xfce_exec (real_command, FALSE, FALSE, &error);
++  xfce_spawn_command_line_on_screen(gdk_screen_get_default(), real_command, FALSE, FALSE, &error);
+   if (error != NULL)
+     {
+-      xfce_err (_("Unable to execute the command \"%s\"\n\n%s"), real_command, error->message);
++      xfce_dialog_show_error (NULL, NULL, _("Unable to execute the command \"%s\"\n\n%s"), real_command, error->message);
+       g_error_free (error);
+     }
+   g_free (real_command);
+diff -ur xfce4-clipman-plugin-1.1.3-orig/panel-plugin/main-panel-plugin.c xfce4-clipman-plugin-1.1.3/panel-plugin/main-panel-plugin.c
+--- xfce4-clipman-plugin-1.1.3-orig/panel-plugin/main-panel-plugin.c	2009-11-01 20:13:16.000000000 +0100
++++ xfce4-clipman-plugin-1.1.3/panel-plugin/main-panel-plugin.c	2011-03-01 12:31:01.237889238 +0100
+@@ -26,9 +26,8 @@
+ 
+ #include <glib/gstdio.h>
+ #include <gtk/gtk.h>
+-#include <libxfcegui4/libxfcegui4.h>
+-#include <libxfce4panel/xfce-panel-plugin.h>
+-#include <libxfce4panel/xfce-panel-convenience.h>
++#include <libxfce4ui/libxfce4ui.h>
++#include <libxfce4panel/libxfce4panel.h>
+ 
+ #include "common.h"
+ #include "plugin.h"
+@@ -112,7 +111,7 @@
+ 
+   size -= 2 + 2 * MAX (plugin->button->style->xthickness,
+                        plugin->button->style->ythickness);
+-  pixbuf = xfce_themed_icon_load (GTK_STOCK_PASTE, size);
++  pixbuf = gtk_icon_theme_load_icon ( gtk_icon_theme_get_default(), GTK_STOCK_PASTE, size, GTK_ICON_LOOKUP_GENERIC_FALLBACK, NULL);
+   gtk_image_set_from_pixbuf (GTK_IMAGE (plugin->image), pixbuf);
+   g_object_unref (G_OBJECT (pixbuf));
+ 
+diff -ur xfce4-clipman-plugin-1.1.3-orig/panel-plugin/main-status-icon.c xfce4-clipman-plugin-1.1.3/panel-plugin/main-status-icon.c
+--- xfce4-clipman-plugin-1.1.3-orig/panel-plugin/main-status-icon.c	2009-11-01 20:13:16.000000000 +0100
++++ xfce4-clipman-plugin-1.1.3/panel-plugin/main-status-icon.c	2011-03-01 12:23:38.599889237 +0100
+@@ -26,7 +26,7 @@
+ 
+ #include <glib/gstdio.h>
+ #include <gtk/gtk.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ 
+ #include "common.h"
+ #include "plugin.h"
+diff -ur xfce4-clipman-plugin-1.1.3-orig/panel-plugin/Makefile.am xfce4-clipman-plugin-1.1.3/panel-plugin/Makefile.am
+--- xfce4-clipman-plugin-1.1.3-orig/panel-plugin/Makefile.am	2009-08-13 10:33:31.000000000 +0200
++++ xfce4-clipman-plugin-1.1.3/panel-plugin/Makefile.am	2011-03-01 12:23:38.600889237 +0100
+@@ -57,7 +57,7 @@
+ 	@GIO_CFLAGS@							\
+ 	@EXO_CFLAGS@							\
+ 	@GTK_CFLAGS@							\
+-	@LIBXFCEGUI4_CFLAGS@						\
++	@LIBXFCE4UI_CFLAGS@						\
+ 	@XFCONF_CFLAGS@							\
+ 	@GLADE_CFLAGS@							\
+ 	@UNIQUE_CFLAGS@							\
+@@ -67,7 +67,7 @@
+ 	@GIO_LIBS@							\
+ 	@EXO_LIBS@							\
+ 	@GTK_LIBS@							\
+-	@LIBXFCEGUI4_LIBS@						\
++	@LIBXFCE4UI_LIBS@						\
+ 	@XFCONF_LIBS@							\
+ 	@GLADE_LIBS@							\
+ 	@UNIQUE_LIBS@							\
+@@ -95,7 +95,7 @@
+ 	@GDKX_CFLAGS@							\
+ 	@GTK_CFLAGS@							\
+ 	@LIBXFCE4UTIL_CFLAGS@						\
+-	@LIBXFCEGUI4_CFLAGS@						\
++	@LIBXFCE4UI_CFLAGS@						\
+ 	@XFCONF_CFLAGS@							\
+ 	$(NULL)
+ 
+@@ -107,7 +107,7 @@
+ 	@GDKX_LIBS@							\
+ 	@GTK_LIBS@							\
+ 	@LIBXFCE4UTIL_LIBS@						\
+-	@LIBXFCEGUI4_LIBS@						\
++	@LIBXFCE4UI_LIBS@						\
+ 	@XFCONF_LIBS@							\
+ 	$(NULL)
+ 
+@@ -136,7 +136,7 @@
+ 	@GDKX_CFLAGS@							\
+ 	@GTK_CFLAGS@							\
+ 	@LIBXFCE4UTIL_CFLAGS@						\
+-	@LIBXFCEGUI4_CFLAGS@						\
++	@LIBXFCE4UI_CFLAGS@						\
+ 	@LIBXFCE4PANEL_CFLAGS@						\
+ 	@XFCONF_CFLAGS@							\
+ 	$(NULL)
+@@ -149,7 +149,7 @@
+ 	@GDKX_LIBS@							\
+ 	@GTK_LIBS@							\
+ 	@LIBXFCE4UTIL_LIBS@						\
+-	@LIBXFCEGUI4_LIBS@						\
++	@LIBXFCE4UI_LIBS@						\
+ 	@LIBXFCE4PANEL_LIBS@						\
+ 	@XFCONF_LIBS@							\
+ 	$(NULL)
+diff -ur xfce4-clipman-plugin-1.1.3-orig/panel-plugin/menu.c xfce4-clipman-plugin-1.1.3/panel-plugin/menu.c
+--- xfce4-clipman-plugin-1.1.3-orig/panel-plugin/menu.c	2009-09-12 03:06:58.000000000 +0200
++++ xfce4-clipman-plugin-1.1.3/panel-plugin/menu.c	2011-03-01 12:29:30.512889237 +0100
+@@ -22,7 +22,7 @@
+ 
+ #include <exo/exo.h>
+ #include <gtk/gtk.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ #include <libxfce4util/libxfce4util.h>
+ 
+ #include "collector.h"
+@@ -124,7 +124,7 @@
+ {
+   GtkClipboard *clipboard;
+ 
+-  if (!xfce_confirm (_("Are you sure you want to clear the history?"), GTK_STOCK_YES, NULL))
++  if (!xfce_dialog_confirm(NULL, GTK_STOCK_YES, NULL, NULL, _("Are you sure you want to clear the history?")))
+     return;
+ 
+   clipman_history_clear (menu->priv->history);
+diff -ur xfce4-clipman-plugin-1.1.3-orig/panel-plugin/xfce4-clipman-settings.c xfce4-clipman-plugin-1.1.3/panel-plugin/xfce4-clipman-settings.c
+--- xfce4-clipman-plugin-1.1.3-orig/panel-plugin/xfce4-clipman-settings.c	2009-09-12 02:59:31.000000000 +0200
++++ xfce4-clipman-plugin-1.1.3/panel-plugin/xfce4-clipman-settings.c	2011-03-01 12:30:03.351889238 +0100
+@@ -30,7 +30,7 @@
+ 
+ #include <gtk/gtk.h>
+ #include <glade/glade.h>
+-#include <libxfcegui4/libxfcegui4.h>
++#include <libxfce4ui/libxfce4ui.h>
+ #include <xfconf/xfconf.h>
+ 
+ #include "common.h"
+@@ -203,7 +203,7 @@
+   if (gdk_spawn_command_line_on_screen (screen, command, NULL))
+     goto out;
+ 
+-  xfce_err ("Unable to open documentation \"%s\"", filename);
++  xfce_dialog_show_error (NULL, NULL, "Unable to open documentation \"%s\"", filename);
+ 
+ out:
+   g_free (filename);
+diff -ur xfce4-clipman-plugin-1.1.3-orig/tests/Makefile.am xfce4-clipman-plugin-1.1.3/tests/Makefile.am
+--- xfce4-clipman-plugin-1.1.3-orig/tests/Makefile.am	2009-11-15 01:53:14.000000000 +0100
++++ xfce4-clipman-plugin-1.1.3/tests/Makefile.am	2011-03-01 12:23:38.605889237 +0100
+@@ -12,8 +12,8 @@
+ 
+ noinst_PROGRAMS = test-actions test-daemon test-targets
+ test_actions_SOURCES = test_actions.c ../panel-plugin/actions.c ../panel-plugin/actions.h ../panel-plugin/common.h
+-test_actions_CFLAGS = @GTK_CFLAGS@ @EXO_CFLAGS@ @LIBXFCE4UTIL_CFLAGS@ @LIBXFCEGUI4_CFLAGS@
+-test_actions_LDADD = @GTK_LIBS@ @EXO_LIBS@ @LIBXFCE4UTIL_LIBS@ @LIBXFCEGUI4_LIBS@ 
++test_actions_CFLAGS = @GTK_CFLAGS@ @EXO_CFLAGS@ @LIBXFCE4UTIL_CFLAGS@ @LIBXFCE4UI_CFLAGS@
++test_actions_LDADD = @GTK_LIBS@ @EXO_LIBS@ @LIBXFCE4UTIL_LIBS@ @LIBXFCE4UI_LIBS@ 
+ test_daemon_SOURCES = test_daemon.c
+ test_daemon_CFLAGS = @GTK_CFLAGS@
+ test_daemon_LDADD = $(top_builddir)/daemon/libdaemon.la @GTK_LIBS@

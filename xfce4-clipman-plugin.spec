@@ -77,30 +77,19 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce4-clipman.desktop
 %{_datadir}/xfce4/panel/plugins/xfce4-clipman-plugin.desktop
 
-%{_datadir}/doc/xfce4-clipman-plugin/html/C/*.html
-%lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca/*.html
-%lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca/images/*.png
-%lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da/*.html
-%lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da/images/*.png
-%lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el/*.html
-%lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el/images/*.png
-%lang(fr) %{_datadir}/doc/xfce4-clipman-plugin/html/fr/*.html
-%lang(fr) %{_datadir}/doc/xfce4-clipman-plugin/html/fr/images/*.png
-%lang(gl) %{_datadir}/doc/xfce4-clipman-plugin/html/gl/*.html
-%lang(gl) %{_datadir}/doc/xfce4-clipman-plugin/html/gl/images/*.png
-%lang(it) %{_datadir}/doc/xfce4-clipman-plugin/html/it/*.html
-%lang(it) %{_datadir}/doc/xfce4-clipman-plugin/html/it/images/*.png
-%lang(ja) %{_datadir}/doc/xfce4-clipman-plugin/html/ja/*.html
-%lang(ja) %{_datadir}/doc/xfce4-clipman-plugin/html/ja/images/*.png
-%lang(pt) %{_datadir}/doc/xfce4-clipman-plugin/html/pt/*.html
-%lang(pt) %{_datadir}/doc/xfce4-clipman-plugin/html/pt/images/*.png
-%lang(ru) %{_datadir}/doc/xfce4-clipman-plugin/html/ru/*.html
-%lang(ru) %{_datadir}/doc/xfce4-clipman-plugin/html/ru/images/*.png
-%lang(tr) %{_datadir}/doc/xfce4-clipman-plugin/html/tr/*.html
-%lang(tr) %{_datadir}/doc/xfce4-clipman-plugin/html/tr/images/*.png
-%lang(ug) %{_datadir}/doc/xfce4-clipman-plugin/html/ug/*.html
-%lang(ug) %{_datadir}/doc/xfce4-clipman-plugin/html/ug/images/*.png
-%lang(uk) %{_datadir}/doc/xfce4-clipman-plugin/html/uk/*.html
-%lang(uk) %{_datadir}/doc/xfce4-clipman-plugin/html/uk/images/*.png
-%lang(zh_CN) %{_datadir}/doc/xfce4-clipman-plugin/html/zh_CN/*.html
-%lang(zh_CN) %{_datadir}/doc/xfce4-clipman-plugin/html/zh_CN/images/*.png
+%dir %{_datadir}/doc/xfce4-clipman-plugin
+%dir %{_datadir}/doc/xfce4-clipman-plugin/html
+%{_datadir}/doc/xfce4-clipman-plugin/html/C
+%lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca
+%lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da
+%lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el
+%lang(fr) %{_datadir}/doc/xfce4-clipman-plugin/html/fr
+%lang(gl) %{_datadir}/doc/xfce4-clipman-plugin/html/gl
+%lang(it) %{_datadir}/doc/xfce4-clipman-plugin/html/it
+%lang(ja) %{_datadir}/doc/xfce4-clipman-plugin/html/ja
+%lang(pt) %{_datadir}/doc/xfce4-clipman-plugin/html/pt
+%lang(ru) %{_datadir}/doc/xfce4-clipman-plugin/html/ru
+%lang(tr) %{_datadir}/doc/xfce4-clipman-plugin/html/tr
+%lang(ug) %{_datadir}/doc/xfce4-clipman-plugin/html/ug
+%lang(uk) %{_datadir}/doc/xfce4-clipman-plugin/html/uk
+%lang(zh_CN) %{_datadir}/doc/xfce4-clipman-plugin/html/zh_CN

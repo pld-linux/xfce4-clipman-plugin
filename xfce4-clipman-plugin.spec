@@ -49,6 +49,8 @@ rm -rf $RPM_BUILD_ROOT
 %{__make} install \
 	DESTDIR=$RPM_BUILD_ROOT
 
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
+
 rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
 
 %find_lang %{name}
@@ -75,30 +77,30 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce4-clipman.desktop
 %{_datadir}/xfce4/panel/plugins/xfce4-clipman-plugin.desktop
 
-#%{_datadir}/xfce4/doc/C/*.html
-#%lang(ca) %{_datadir}/xfce4/doc/ca/*.html
-#%lang(ca) %{_datadir}/xfce4/doc/ca/images/*.png
-#%lang(da) %{_datadir}/xfce4/doc/da/*.html
-#%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
-#%lang(el) %{_datadir}/xfce4/doc/el/*.html
-#%lang(el) %{_datadir}/xfce4/doc/el/images/*.png
-#%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
-#%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
-#%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
-#%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
-#%lang(it) %{_datadir}/xfce4/doc/it/*.html
-#%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
-#%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
-#%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
-#%lang(pt) %{_datadir}/xfce4/doc/pt/*.html
-#%lang(pt) %{_datadir}/xfce4/doc/pt/images/*.png
-#%lang(ru) %{_datadir}/xfce4/doc/ru/*.html
-#%lang(ru) %{_datadir}/xfce4/doc/ru/images/*.png
-#%lang(tr) %{_datadir}/xfce4/doc/tr/*.html
-#%lang(tr) %{_datadir}/xfce4/doc/tr/images/*.png
-#%lang(ug) %{_datadir}/xfce4/doc/ug/*.html
-#%lang(ug) %{_datadir}/xfce4/doc/ug/images/*.png
-#%lang(uk) %{_datadir}/xfce4/doc/uk/*.html
-#%lang(uk) %{_datadir}/xfce4/doc/uk/images/*.png
-#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
-#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png
+%{_datadir}/doc/xfce4-clipman-plugin/html/C/*.html
+%lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca/*.html
+%lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca/images/*.png
+%lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da/*.html
+%lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da/images/*.png
+%lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el/*.html
+%lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el/images/*.png
+%lang(fr) %{_datadir}/doc/xfce4-clipman-plugin/html/fr/*.html
+%lang(fr) %{_datadir}/doc/xfce4-clipman-plugin/html/fr/images/*.png
+%lang(gl) %{_datadir}/doc/xfce4-clipman-plugin/html/gl/*.html
+%lang(gl) %{_datadir}/doc/xfce4-clipman-plugin/html/gl/images/*.png
+%lang(it) %{_datadir}/doc/xfce4-clipman-plugin/html/it/*.html
+%lang(it) %{_datadir}/doc/xfce4-clipman-plugin/html/it/images/*.png
+%lang(ja) %{_datadir}/doc/xfce4-clipman-plugin/html/ja/*.html
+%lang(ja) %{_datadir}/doc/xfce4-clipman-plugin/html/ja/images/*.png
+%lang(pt) %{_datadir}/doc/xfce4-clipman-plugin/html/pt/*.html
+%lang(pt) %{_datadir}/doc/xfce4-clipman-plugin/html/pt/images/*.png
+%lang(ru) %{_datadir}/doc/xfce4-clipman-plugin/html/ru/*.html
+%lang(ru) %{_datadir}/doc/xfce4-clipman-plugin/html/ru/images/*.png
+%lang(tr) %{_datadir}/doc/xfce4-clipman-plugin/html/tr/*.html
+%lang(tr) %{_datadir}/doc/xfce4-clipman-plugin/html/tr/images/*.png
+%lang(ug) %{_datadir}/doc/xfce4-clipman-plugin/html/ug/*.html
+%lang(ug) %{_datadir}/doc/xfce4-clipman-plugin/html/ug/images/*.png
+%lang(uk) %{_datadir}/doc/xfce4-clipman-plugin/html/uk/*.html
+%lang(uk) %{_datadir}/doc/xfce4-clipman-plugin/html/uk/images/*.png
+%lang(zh_CN) %{_datadir}/doc/xfce4-clipman-plugin/html/zh_CN/*.html
+%lang(zh_CN) %{_datadir}/doc/xfce4-clipman-plugin/html/zh_CN/images/*.png

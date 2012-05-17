@@ -64,7 +64,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc AUTHORS ChangeLog NEWS README TODO
+%doc AUTHORS ChangeLog NEWS README
 %{_sysconfdir}/xdg/autostart/xfce4-clipman-plugin-autostart.desktop
 %{_sysconfdir}/xdg/xfce4/panel/xfce4-clipman-actions.xml
 %attr(755,root,root) %{_bindir}/xfce4-clipman

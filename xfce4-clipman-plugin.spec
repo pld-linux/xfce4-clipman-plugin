@@ -7,7 +7,6 @@ License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.2/%{name}-%{version}.tar.bz2
 # Source0-md5:	61f3be97efa379cb358980c94e14692a
-Patch0:		manual-dir.patch
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -33,7 +32,6 @@ Wtyczka ta jest historią schowka panelu.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -77,31 +75,30 @@ rm -rf $RPM_BUILD_ROOT
 %{_desktopdir}/xfce4-clipman.desktop
 %{_datadir}/xfce4/panel/plugins/xfce4-clipman-plugin.desktop
 
-%{_datadir}/xfce4/doc/C/*.html
-%{_datadir}/xfce4/doc/C/images/*.png
-%lang(da) %{_datadir}/xfce4/doc/ca/*.html
-%lang(da) %{_datadir}/xfce4/doc/ca/images/*.png
-%lang(da) %{_datadir}/xfce4/doc/da/*.html
-%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
-%lang(fr) %{_datadir}/xfce4/doc/el/*.html
-%lang(fr) %{_datadir}/xfce4/doc/el/images/*.png
-%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
-%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
-%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
-%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
-%lang(it) %{_datadir}/xfce4/doc/it/*.html
-%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
-%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/pt/*.html
-%lang(ja) %{_datadir}/xfce4/doc/pt/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/ru/*.html
-%lang(ja) %{_datadir}/xfce4/doc/ru/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/tr/*.html
-%lang(ja) %{_datadir}/xfce4/doc/tr/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/ug/*.html
-%lang(ja) %{_datadir}/xfce4/doc/ug/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/uk/*.html
-%lang(ja) %{_datadir}/xfce4/doc/uk/images/*.png
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png
+#%{_datadir}/xfce4/doc/C/*.html
+#%lang(ca) %{_datadir}/xfce4/doc/ca/*.html
+#%lang(ca) %{_datadir}/xfce4/doc/ca/images/*.png
+#%lang(da) %{_datadir}/xfce4/doc/da/*.html
+#%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
+#%lang(el) %{_datadir}/xfce4/doc/el/*.html
+#%lang(el) %{_datadir}/xfce4/doc/el/images/*.png
+#%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
+#%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
+#%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
+#%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
+#%lang(it) %{_datadir}/xfce4/doc/it/*.html
+#%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
+#%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
+#%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
+#%lang(pt) %{_datadir}/xfce4/doc/pt/*.html
+#%lang(pt) %{_datadir}/xfce4/doc/pt/images/*.png
+#%lang(ru) %{_datadir}/xfce4/doc/ru/*.html
+#%lang(ru) %{_datadir}/xfce4/doc/ru/images/*.png
+#%lang(tr) %{_datadir}/xfce4/doc/tr/*.html
+#%lang(tr) %{_datadir}/xfce4/doc/tr/images/*.png
+#%lang(ug) %{_datadir}/xfce4/doc/ug/*.html
+#%lang(ug) %{_datadir}/xfce4/doc/ug/images/*.png
+#%lang(uk) %{_datadir}/xfce4/doc/uk/*.html
+#%lang(uk) %{_datadir}/xfce4/doc/uk/images/*.png
+#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
+#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png

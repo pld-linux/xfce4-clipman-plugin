@@ -70,22 +70,22 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-clipman
 %attr(755,root,root) %{_bindir}/xfce4-clipman-settings
 %attr(755,root,root) %{_bindir}/xfce4-popup-clipman
-%attr(755,root,root) %{_libdir}/xfce4/panel-plugins/xfce4-clipman-plugin
+%attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libclipman.so
 %{_iconsdir}/hicolor/*/apps/xfce4-clipman-plugin.*
-%{_desktopdir}/xfce4-clipman-plugin.desktop
-%{_datadir}/xfce4/panel-plugins/xfce4-clipman-plugin.desktop
+#%{_desktopdir}/xfce4-clipman-plugin.desktop
+#%{_datadir}/xfce4/panel-plugins/xfce4-clipman-plugin.desktop
 
-%{_datadir}/xfce4/doc/C/*.html
-%{_datadir}/xfce4/doc/C/images/*.png
-%lang(da) %{_datadir}/xfce4/doc/da/*.html
-%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
-%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
-%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
-%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
-%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
-%lang(it) %{_datadir}/xfce4/doc/it/*.html
-%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
-%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
-%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
-%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png
+#%{_datadir}/xfce4/doc/C/*.html
+#%{_datadir}/xfce4/doc/C/images/*.png
+#%lang(da) %{_datadir}/xfce4/doc/da/*.html
+#%lang(da) %{_datadir}/xfce4/doc/da/images/*.png
+#%lang(fr) %{_datadir}/xfce4/doc/fr/*.html
+#%lang(fr) %{_datadir}/xfce4/doc/fr/images/*.png
+#%lang(gl) %{_datadir}/xfce4/doc/gl/*.html
+#%lang(gl) %{_datadir}/xfce4/doc/gl/images/*.png
+#%lang(it) %{_datadir}/xfce4/doc/it/*.html
+#%lang(it) %{_datadir}/xfce4/doc/it/images/*.png
+#%lang(ja) %{_datadir}/xfce4/doc/ja/*.html
+#%lang(ja) %{_datadir}/xfce4/doc/ja/images/*.png
+#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/*.html
+#%lang(zh_CN) %{_datadir}/xfce4/doc/zh_CN/images/*.png

@@ -80,6 +80,7 @@ rm -rf $RPM_BUILD_ROOT
 %dir %{_datadir}/doc/xfce4-clipman-plugin
 %dir %{_datadir}/doc/xfce4-clipman-plugin/html
 %{_datadir}/doc/xfce4-clipman-plugin/html/C
+%{_datadir}/doc/xfce4-clipman-plugin/html/index.css
 %lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca
 %lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da
 %lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el

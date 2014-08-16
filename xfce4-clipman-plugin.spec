@@ -1,16 +1,17 @@
 Summary:	A simple clipboard history for Xfce panel
 Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
-Version:	1.2.3
+Version:	1.2.6
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	61f3be97efa379cb358980c94e14692a
+# Source0-md5:	f7f2440647493243cbd7787eaee92fcb
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	exo-devel >= 0.8.0
+BuildRequires:	qrencode-devel >= 3.3.0
 BuildRequires:	libtool
 BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	libxfce4ui-devel
@@ -51,7 +52,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
-rm -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
+%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
 
 %find_lang %{name}
 
@@ -76,21 +77,4 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/xfce4-clipman-plugin.*
 %{_desktopdir}/xfce4-clipman.desktop
 %{_datadir}/xfce4/panel/plugins/xfce4-clipman-plugin.desktop
-
-%dir %{_datadir}/doc/xfce4-clipman-plugin
-%dir %{_datadir}/doc/xfce4-clipman-plugin/html
-%{_datadir}/doc/xfce4-clipman-plugin/html/C
-%{_datadir}/doc/xfce4-clipman-plugin/html/index.css
-%lang(ca) %{_datadir}/doc/xfce4-clipman-plugin/html/ca
-%lang(da) %{_datadir}/doc/xfce4-clipman-plugin/html/da
-%lang(el) %{_datadir}/doc/xfce4-clipman-plugin/html/el
-%lang(fr) %{_datadir}/doc/xfce4-clipman-plugin/html/fr
-%lang(gl) %{_datadir}/doc/xfce4-clipman-plugin/html/gl
-%lang(it) %{_datadir}/doc/xfce4-clipman-plugin/html/it
-%lang(ja) %{_datadir}/doc/xfce4-clipman-plugin/html/ja
-%lang(pt) %{_datadir}/doc/xfce4-clipman-plugin/html/pt
-%lang(ru) %{_datadir}/doc/xfce4-clipman-plugin/html/ru
-%lang(tr) %{_datadir}/doc/xfce4-clipman-plugin/html/tr
-%lang(ug) %{_datadir}/doc/xfce4-clipman-plugin/html/ug
-%lang(uk) %{_datadir}/doc/xfce4-clipman-plugin/html/uk
-%lang(zh_CN) %{_datadir}/doc/xfce4-clipman-plugin/html/zh_CN
+%{_datadir}/appdata/xfce4-clipman.appdata.xml

@@ -1,12 +1,12 @@
 Summary:	A simple clipboard history for Xfce panel
 Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
-Version:	1.2.6
-Release:	4
+Version:	1.4.2
+Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.2/%{name}-%{version}.tar.bz2
-# Source0-md5:	f7f2440647493243cbd7787eaee92fcb
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.4/%{name}-%{version}.tar.bz2
+# Source0-md5:	9169140af7c9d3fddd8a5c9e0efb5a61
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -73,7 +73,9 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/xfce4-clipman
 %attr(755,root,root) %{_bindir}/xfce4-clipman-settings
 %attr(755,root,root) %{_bindir}/xfce4-popup-clipman
+%attr(755,root,root) %{_bindir}/xfce4-popup-clipman-actions
 %attr(755,root,root) %{_libdir}/xfce4/panel/plugins/libclipman.so
+%{_iconsdir}/hicolor/*/apps/clipman-symbolic.*
 %{_iconsdir}/hicolor/*/apps/xfce4-clipman-plugin.*
 %{_desktopdir}/xfce4-clipman.desktop
 %{_datadir}/xfce4/panel/plugins/xfce4-clipman-plugin.desktop

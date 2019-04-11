@@ -1,12 +1,12 @@
 Summary:	A simple clipboard history for Xfce panel
 Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
-Version:	1.4.2
+Version:	1.4.3
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	9169140af7c9d3fddd8a5c9e0efb5a61
+# Source0-md5:	fa0acd5f5e3298e56ebd47d2944cd02b
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake

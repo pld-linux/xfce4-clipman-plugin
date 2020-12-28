@@ -1,21 +1,20 @@
 Summary:	A simple clipboard history for Xfce panel
 Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
-Version:	1.4.4
+Version:	1.6.1
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
-Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.4/%{name}-%{version}.tar.bz2
-# Source0-md5:	104c917ef53a66f7aa2dca01b43c3b77
+Source0:	http://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.6/%{name}-%{version}.tar.bz2
+# Source0-md5:	c9306940c0ca7abd838a14c9d19b3a7e
 URL:		http://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	exo-devel >= 0.8.0
-BuildRequires:	qrencode-devel >= 3.3.0
 BuildRequires:	libtool
-BuildRequires:	libunique-devel >= 1.0.0
 BuildRequires:	libxfce4ui-devel
 BuildRequires:	pkgconfig
+BuildRequires:	qrencode-devel >= 3.3.0
 BuildRequires:	rpmbuild(macros) >= 1.601
 BuildRequires:	xfce4-dev-tools >= 4.10.0
 BuildRequires:	xfce4-panel-devel >= 4.10.0
@@ -52,9 +51,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %{__rm} $RPM_BUILD_ROOT%{_libdir}/xfce4/panel/plugins/*.la
 
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/hy_AM
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ie
-%{__rm} -r $RPM_BUILD_ROOT%{_datadir}/locale/ur_PK
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/hy_AM
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ie
+%{__rm} -r $RPM_BUILD_ROOT%{_localedir}/ur_PK
 
 %find_lang %{name}
 
@@ -73,6 +72,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_sysconfdir}/xdg/autostart/xfce4-clipman-plugin-autostart.desktop
 %{_sysconfdir}/xdg/xfce4/panel/xfce4-clipman-actions.xml
 %attr(755,root,root) %{_bindir}/xfce4-clipman
+%attr(755,root,root) %{_bindir}/xfce4-clipman-history
 %attr(755,root,root) %{_bindir}/xfce4-clipman-settings
 %attr(755,root,root) %{_bindir}/xfce4-popup-clipman
 %attr(755,root,root) %{_bindir}/xfce4-popup-clipman-actions
@@ -81,4 +81,5 @@ rm -rf $RPM_BUILD_ROOT
 %{_iconsdir}/hicolor/*/apps/xfce4-clipman-plugin.*
 %{_desktopdir}/xfce4-clipman.desktop
 %{_datadir}/xfce4/panel/plugins/xfce4-clipman-plugin.desktop
+%{_desktopdir}/xfce4-clipman-settings.desktop
 %{_datadir}/appdata/xfce4-clipman.appdata.xml

@@ -1,12 +1,12 @@
 Summary:	A simple clipboard history for Xfce panel
 Summary(pl.UTF-8):	Prosta historia schowka panelu Xfce
 Name:		xfce4-clipman-plugin
-Version:	1.6.6
+Version:	1.6.7
 Release:	1
 License:	BSD-like (see COPYING)
 Group:		X11/Applications
 Source0:	https://archive.xfce.org/src/panel-plugins/xfce4-clipman-plugin/1.6/%{name}-%{version}.tar.bz2
-# Source0-md5:	2f143264a2902fc4b75a47b2cf907dee
+# Source0-md5:	1b7f275dc000801a8ce42cd41bba53c6
 URL:		https://goodies.xfce.org/projects/panel-plugins/xfce4-clipman-plugin
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -14,16 +14,22 @@ BuildRequires:	exo-devel >= 0.8.0
 BuildRequires:	glib2-devel >= 2.60.0
 BuildRequires:	gtk+3-devel >= 3.22.29
 BuildRequires:	libtool
-BuildRequires:	libxfce4ui-devel
+BuildRequires:	libxfce4ui-devel >= 4.16.0
+BuildRequires:	libxfce4util-devel >= 4.16.0
 BuildRequires:	pkgconfig
 BuildRequires:	qrencode-devel >= 3.3.0
 BuildRequires:	rpmbuild(macros) >= 1.601
-BuildRequires:	xfce4-dev-tools >= 4.14.0
-BuildRequires:	xfce4-panel-devel >= 4.14.0
+BuildRequires:	wayland-devel >= 1.15.0
+BuildRequires:	xfce4-dev-tools >= 4.16.0
+BuildRequires:	xfce4-panel-devel >= 4.16.0
+BuildRequires:	xfconf-devel >= 4.16.0
+BuildRequires:	xorg-lib-libX11-devel >= 1.6.7
+BuildRequires:	xorg-lib-libXtst-devel >= 1.0.0
+BuildRequires:	xorg-proto-xproto-devel >= 7.0.0
 Requires:	gtk-update-icon-cache
 Requires:	hicolor-icon-theme
 Requires:	xfce4-dirs >= 4.6
-Requires:	xfce4-panel >= 4.14.0
+Requires:	xfce4-panel >= 4.16.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description

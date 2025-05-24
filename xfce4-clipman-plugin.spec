@@ -14,10 +14,10 @@ BuildRequires:	gtk+3-devel >= 3.22.29
 BuildRequires:	libxfce4ui-devel >= 4.18.0
 BuildRequires:	libxfce4util-devel >= 4.18.0
 BuildRequires:	meson >= 0.61.0
-BuildRequires:	ninja
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
 BuildRequires:	qrencode-devel >= 3.3.0
-BuildRequires:	rpmbuild(macros) >= 1.601
+BuildRequires:	rpmbuild(macros) >= 2.042
 BuildRequires:	wayland-devel >= 1.15.0
 BuildRequires:	xfce4-dev-tools >= 4.18.0
 BuildRequires:	xfce4-panel-devel >= 4.18.0
@@ -42,6 +42,7 @@ Wtyczka ta jest historią schowka panelu.
 
 %build
 %meson
+
 %meson_build
 
 %install
